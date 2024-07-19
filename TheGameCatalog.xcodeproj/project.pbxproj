@@ -71,7 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E11A10892C415AB7009D1FC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E11A10892C415AB7009D1FC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "GoogleServices-Info.plist"; sourceTree = "<group>"; };
 		E11A10A02C415D49009D1FC7 /* CommunityRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityRouter.swift; sourceTree = "<group>"; };
 		E11A10A52C415D98009D1FC7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E11A10A72C415DB6009D1FC7 /* BubbleChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleChat.swift; sourceTree = "<group>"; };
