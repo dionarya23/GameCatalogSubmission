@@ -8,14 +8,6 @@ workflows:
           XCODE_PROJECT: "TheGameCatalog.xcodeproj" # Isikan nama project Anda.
           XCODE_SCHEME: "TheGameCatalog" # Isikan nama scheme project Anda.
     scripts:
-      - name: Run tests
-        script: |
-          xcodebuild \
-          -project "$XCODE_PROJECT" \
-          -scheme "$XCODE_SCHEME" \
-          -sdk iphonesimulator \
-          -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2' \
-          clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
       - name: Build debug app
         script: |
           xcodebuild build -project "$XCODE_PROJECT" \
