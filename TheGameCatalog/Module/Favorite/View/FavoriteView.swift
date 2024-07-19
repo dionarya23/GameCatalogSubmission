@@ -5,17 +5,36 @@
 //  Created by Dion Arya Pamungkas on 07/06/24.
 //
 
+import Core
+import Game
 import SwiftUI
 
 struct FavoriteView: View {
-    @ObservedObject var presenter: FavoritePresenter
+    @ObservedObject var presenter: GameFavoritePresenter<
+            Interactor<
+                String,
+                [GameModel],
+                GetFavoriteGamesRepository<
+                    GetFavoriteGamesLocaleDataSource,
+                    GamesTransformer<GenreTransformer>
+                >
+            >,
+            Interactor<
+                String,
+                GameModel,
+                UpdateFavoriteGameRepository<
+                    GetGamesLocaleDataSource,
+                    GameTransformer<GenreTransformer>
+                >
+            >
+        >
     var columns = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     var body: some View {
         NavigationView {
             VStack {
                 if self.presenter.isLoading {
                     loadingIndicator
-                } else if self.presenter.games.isEmpty {
+                } else if self.$presenter.items.isEmpty {
                     emptyIndicator
                 } else if self.presenter.isError {
                     errorIndicator
@@ -35,9 +54,9 @@ struct FavoriteView: View {
                 }
             }.navigationTitle("Favorite")
              .onAppear {
-                presenter.getGamesAndGenres()
+                presenter.getGames()
             }
-             .alert(item: $presenter.alertItem) { alertItem in
+             .alert(item: $presenter.alertItem) { (alertItem: AlertItem) in
                  Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
              }
         }
@@ -72,13 +91,13 @@ extension FavoriteView {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(presenter.filteredGames, id: \.id) { game in
-                    self.presenter.linkBuilder(gameId: game.id) {
+                    linkBuilder(for: game) {
                         GameCard(
                             game: game
                         )
                         .overlay(
                             Button(action: {
-                                presenter.updateFavoriteGame(by: game.id)
+                                presenter.updateFavoriteGame(request: String(game.id))
                             }, label: {
                                 Image(systemName: "heart.fill")
                                     .resizable()
@@ -89,9 +108,7 @@ extension FavoriteView {
                             .padding(.horizontal, 10)
                             .background(Color("bgCardColor"))
                             .clipShape(RoundedRectangle(cornerRadius: 24))
-                            .offset(x: -10, y: 10),
-                            alignment: .topTrailing
-                        )
+                            .offset(x: -10, y: 10), alignment: .topTrailing)
                     }
                     .foregroundColor(.white)
                 }
@@ -100,4 +117,13 @@ extension FavoriteView {
             .padding(.horizontal)
         }
     }
+    func linkBuilder<Content: View>(
+        for game: GameModel,
+        @ViewBuilder content: () -> Content
+      ) -> some View {
+
+        NavigationLink(
+            destination: FavoriteRouter().makeDetailView(gameId: game.id)
+        ) { content() }
+      }
 }

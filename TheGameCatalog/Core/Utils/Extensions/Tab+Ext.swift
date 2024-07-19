@@ -11,6 +11,7 @@ enum Tabs: String {
     case home = "Home"
     case favorite = "Favorite"
     case search = "Search"
+    case chat = "Community"
     @ViewBuilder
     var tabContent: some View {
         switch self {
@@ -19,6 +20,9 @@ enum Tabs: String {
             Text(self.rawValue)
         case .favorite:
             Image(systemName: "heart")
+            Text(self.rawValue)
+        case .chat:
+            Image(systemName: "person.2")
             Text(self.rawValue)
         case .search:
             Image(systemName: "magnifyingglass")

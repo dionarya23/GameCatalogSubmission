@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
+import Core
+import Game
 
 struct GameView: View {
-    @ObservedObject var presenter: GamePresenter
+    @ObservedObject var presenter: GetListPresenter<String, GameModel, Interactor<
+        String,
+        [GameModel],
+        GetGamesRepository<
+            GetGamesRemoteDataSource,
+            GamesTransformer<GenreTransformer>>
+    >>
     var title: String
 
     var body: some View {
@@ -18,8 +26,8 @@ struct GameView: View {
             errorIndicator
         } else {
             List {
-                ForEach(presenter.listGame, id: \.id) { game in
-                    self.presenter.linkBuilder(gameId: game.id) {
+                ForEach(presenter.list, id: \.id) { game in
+                    linkBuilder(for: game) {
                         ListGameCell(game: game)
                     }
                 }
@@ -27,8 +35,8 @@ struct GameView: View {
             .listStyle(.plain)
             .navigationTitle(title)
             .onAppear {
-                if presenter.listGame.isEmpty {
-                    presenter.getGames()
+                if presenter.list.isEmpty {
+                    presenter.getList(request: nil)
                 }
             }
         }
@@ -48,4 +56,13 @@ extension GameView {
         title: presenter.errorMessage
       ).offset(y: 80)
     }
+    func linkBuilder<Content: View>(
+        for game: GameModel,
+        @ViewBuilder content: () -> Content
+      ) -> some View {
+
+        NavigationLink(
+            destination: HomeRouter().makeDetailView(gameId: game.id)
+        ) { content() }
+      }
 }

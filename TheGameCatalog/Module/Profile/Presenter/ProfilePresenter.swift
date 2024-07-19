@@ -5,6 +5,7 @@
 //  Created by Dion Arya Pamungkas on 07/06/24.
 //
 
+import Core
 import SwiftUI
 
 class ProfilePresenter: ObservableObject {

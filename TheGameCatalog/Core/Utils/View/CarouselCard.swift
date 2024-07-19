@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CachedAsyncImage
+import Game
 
 struct CarouselCard: View {
     var gameUpdated: GameModel

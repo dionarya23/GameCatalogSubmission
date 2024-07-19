@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CachedAsyncImage
+import Game
 
 struct ListGameCell: View {
     let game: GameModel

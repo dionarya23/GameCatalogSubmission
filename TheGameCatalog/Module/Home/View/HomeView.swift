@@ -5,10 +5,23 @@
 //  Created by Dion Arya Pamungkas on 04/06/24.
 //
 
+import Core
+import Game
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var presenter: HomePresenter
+    @ObservedObject var presenter: GetListPresenter<
+            String,
+            GameModel,
+            Interactor<
+                String,
+                [GameModel],
+                GetGamesRepository<
+                    GetGamesRemoteDataSource,
+                    GamesTransformer<GenreTransformer>
+                >
+            >
+        >
     var body: some View {
         NavigationView {
             if presenter.isLoading {
@@ -19,8 +32,8 @@ struct HomeView: View {
                 ScrollView {
                     VStack {
                         customCorouselView
-                        GameListView(leftTitle: "Popular Game", listGame: presenter.games)
-                        GameListView(leftTitle: "New Game", listGame: presenter.games)
+                        GameListView(leftTitle: "Popular Game", listGame: presenter.list)
+                        GameListView(leftTitle: "New Game", listGame: presenter.list)
                     }
                 }
                 .toolbar {
@@ -30,7 +43,7 @@ struct HomeView: View {
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        self.presenter.linkBuilderProfile {
+                        linkBuilderProfile {
                             Image(systemName: "person.crop.circle")
                                 .foregroundColor(Color("brandColor"))
                                 .frame(width: 40, height: 40)
@@ -41,8 +54,8 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            if presenter.games.isEmpty {
-                presenter.getGames()
+            if presenter.list.isEmpty {
+                presenter.getList(request: "")
             }
         }
     }
@@ -63,8 +76,8 @@ extension HomeView {
     }
     var customCorouselView: some View {
         TabView {
-            ForEach(presenter.games, id: \.id) { game in
-                self.presenter.linkBuilder(gameId: game.id) {
+            ForEach(presenter.list, id: \.id) { game in
+                linkBuilder(for: game) {
                     CarouselCard(gameUpdated: game)
                 }
                 .foregroundColor(.white)
@@ -81,7 +94,7 @@ extension HomeView {
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 .font(.title3)
             Spacer()
-            self.presenter.linkBuilderListGame(title: leftTitle) {
+            linkBuilderListGame(title: leftTitle) {
                 Text("See more")
                     .foregroundColor(Color("brandColor"))
             }
@@ -91,7 +104,7 @@ extension HomeView {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {
                 ForEach(listGame, id: \.id) { game in
-                    self.presenter.linkBuilder(gameId: game.id) {
+                    linkBuilder(for: game) {
                         GameCard(game: game)
                     }.foregroundColor(.white)
                 }
@@ -101,4 +114,22 @@ extension HomeView {
         .padding(.horizontal)
 
     }
+    func linkBuilder<Content: View>(
+        for game: GameModel,
+        @ViewBuilder content: () -> Content
+      ) -> some View {
+        NavigationLink(destination: HomeRouter().makeDetailView(gameId: game.id)) { content() }
+      }
+    func linkBuilderProfile<Content: View>(
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(destination: HomeRouter().makeProfileView()) { content() }
+    }
+    func linkBuilderListGame<Content: View>(
+        title: String,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(destination: HomeRouter().makeListGameView(title: title)) { content() }
+    }
+
 }

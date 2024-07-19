@@ -6,35 +6,45 @@
 //
 
 import SwiftUI
+import Core
+import Game
 
 struct SearchView: View {
-    @ObservedObject var presenter: SearchPresenter
+    @ObservedObject var presenter: SearchPresenter<
+            GameModel,
+            Interactor<
+                String,
+                [GameModel],
+                SearchGamesRepository<
+                    GetGamesRemoteDataSource,
+                    GamesTransformer<GenreTransformer>
+                >
+            >
+        >
     var body: some View {
         NavigationStack {
-            if presenter.isError {
-                errorIndicator
-            } else {
-                List {
-                    ForEach(presenter.games, id: \.id) { game in
-                        self.presenter.linkBuilder(gameId: game.id) {
-                            ListGameCell(game: game)
-                        }
+            List {
+                ForEach(presenter.list, id: \.id) { game in
+                    linkBuilder(for: game) {
+                        ListGameCell(game: game)
                     }
-                }
-                .overlay(
-                    Group {
-                        if presenter.isLoading {
-                            loadingIndicator
-                        }
-                    }
-                )
-                .listStyle(.plain)
-                .navigationTitle("Search Game")
-                .searchable(text: $presenter.searchText)
-                .onChange(of: presenter.searchText) { searchText in
-                    presenter.getSearchGame(by: searchText)
                 }
             }
+            .listStyle(.plain)
+            .navigationTitle("Search Game")
+            .searchable(text: $presenter.keyword)
+            .onChange(of: presenter.keyword) { _ in
+                presenter.search()
+            }
+            .overlay(
+                Group {
+                    if presenter.isLoading {
+                        loadingIndicator
+                    } else if presenter.isError {
+                        errorIndicator
+                    }
+                }
+            )
         }
     }
 }
@@ -50,6 +60,15 @@ extension SearchView {
       CustomEmptyView(
         image: "assetNotFound",
         title: presenter.errorMessage
-      ).offset(y: 80)
+      )
     }
+    func linkBuilder<Content: View>(
+        for game: GameModel,
+        @ViewBuilder content: () -> Content
+      ) -> some View {
+
+        NavigationLink(
+            destination: HomeRouter().makeDetailView(gameId: game.id)
+        ) { content() }
+      }
 }
