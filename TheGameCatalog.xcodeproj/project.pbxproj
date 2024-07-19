@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E11A108A2C415AB7009D1FC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E11A10892C415AB7009D1FC7 /* GoogleService-Info.plist */; };
 		E11A108D2C415B37009D1FC7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E11A108C2C415B37009D1FC7 /* FirebaseAuth */; };
 		E11A108F2C415B37009D1FC7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E11A108E2C415B37009D1FC7 /* FirebaseFirestore */; };
 		E11A10912C415B37009D1FC7 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E11A10902C415B37009D1FC7 /* FirebaseFirestoreCombine-Community */; };
@@ -18,6 +17,7 @@
 		E11A10AA2C415DCB009D1FC7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A10A92C415DCB009D1FC7 /* ChatView.swift */; };
 		E11A10AC2C415DE6009D1FC7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A10AB2C415DE6009D1FC7 /* LoginView.swift */; };
 		E11A10AE2C415DFB009D1FC7 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A10AD2C415DFB009D1FC7 /* RegisterView.swift */; };
+		E172A5AA2C4B0E4300C9F385 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E172A5A92C4B0E4300C9F385 /* GoogleService-Info.plist */; };
 		E190533F2C49052000E97723 /* Game in Frameworks */ = {isa = PBXBuildFile; productRef = E190533E2C49052000E97723 /* Game */; };
 		E19053412C49052400E97723 /* GameCommunity in Frameworks */ = {isa = PBXBuildFile; productRef = E19053402C49052400E97723 /* GameCommunity */; };
 		E1A744EF2C12170F000D9E05 /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A744EE2C12170F000D9E05 /* GameCard.swift */; };
@@ -71,7 +71,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E11A10892C415AB7009D1FC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "GoogleServices-Info.plist"; sourceTree = "<group>"; };
 		E11A10A02C415D49009D1FC7 /* CommunityRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityRouter.swift; sourceTree = "<group>"; };
 		E11A10A52C415D98009D1FC7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		E11A10A72C415DB6009D1FC7 /* BubbleChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleChat.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		E11A10B02C415ED1009D1FC7 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Modules/Core; sourceTree = "<group>"; };
 		E11A10B32C415EE9009D1FC7 /* Game */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Game; path = Modules/Game; sourceTree = "<group>"; };
 		E12672972C42BC4C003C8E38 /* GameCommunity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GameCommunity; path = Modules/GameCommunity; sourceTree = "<group>"; };
+		E172A5A92C4B0E4300C9F385 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1A744EE2C12170F000D9E05 /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
 		E1A744F02C1217A3000D9E05 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		E1A744F32C1218A0000D9E05 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		E1D276EE2C0EDBE700DCE8DE /* TheGameCatalog */ = {
 			isa = PBXGroup;
 			children = (
-				E11A10892C415AB7009D1FC7 /* GoogleService-Info.plist */,
+				E172A5A92C4B0E4300C9F385 /* GoogleService-Info.plist */,
 				E1D276FD2C0EE04300DCE8DE /* App */,
 				E1D276FE2C0EE05700DCE8DE /* Core */,
 				E1D2770F2C0EE0FB00DCE8DE /* Module */,
@@ -532,7 +532,7 @@
 			files = (
 				E1D276F72C0EDBE900DCE8DE /* Preview Assets.xcassets in Resources */,
 				E1D276F42C0EDBE900DCE8DE /* Assets.xcassets in Resources */,
-				E11A108A2C415AB7009D1FC7 /* GoogleService-Info.plist in Resources */,
+				E172A5AA2C4B0E4300C9F385 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
