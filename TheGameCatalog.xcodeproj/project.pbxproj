@@ -17,6 +17,7 @@
 		E11A10AA2C415DCB009D1FC7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A10A92C415DCB009D1FC7 /* ChatView.swift */; };
 		E11A10AC2C415DE6009D1FC7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A10AB2C415DE6009D1FC7 /* LoginView.swift */; };
 		E11A10AE2C415DFB009D1FC7 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A10AD2C415DFB009D1FC7 /* RegisterView.swift */; };
+		E12C41002C4B3A0800841025 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E12C40FF2C4B3A0800841025 /* Core */; };
 		E172A5AA2C4B0E4300C9F385 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E172A5A92C4B0E4300C9F385 /* GoogleService-Info.plist */; };
 		E190533F2C49052000E97723 /* Game in Frameworks */ = {isa = PBXBuildFile; productRef = E190533E2C49052000E97723 /* Game */; };
 		E19053412C49052400E97723 /* GameCommunity in Frameworks */ = {isa = PBXBuildFile; productRef = E19053402C49052400E97723 /* GameCommunity */; };
@@ -25,7 +26,6 @@
 		E1A744F42C1218A0000D9E05 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A744F32C1218A0000D9E05 /* GameView.swift */; };
 		E1A744F82C1218B9000D9E05 /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A744F72C1218B9000D9E05 /* GameRouter.swift */; };
 		E1A8738A2C10B5C000A7DA7E /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A873892C10B5C000A7DA7E /* HomeRouter.swift */; };
-		E1B8A4442C4AF82400EB82D1 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = E1B8A4432C4AF82400EB82D1 /* Core */; };
 		E1BCF0CB2C0F43E500B0ACD0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1BCF0CA2C0F43E500B0ACD0 /* RealmSwift */; };
 		E1BCF0CC2C0F440800B0ACD0 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = E1BCF0CA2C0F43E500B0ACD0 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E1BCF0CE2C0F451300B0ACD0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCF0CD2C0F451300B0ACD0 /* DetailView.swift */; };
@@ -77,7 +77,6 @@
 		E11A10A92C415DCB009D1FC7 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		E11A10AB2C415DE6009D1FC7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E11A10AD2C415DFB009D1FC7 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		E11A10B02C415ED1009D1FC7 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = Modules/Core; sourceTree = "<group>"; };
 		E11A10B32C415EE9009D1FC7 /* Game */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Game; path = Modules/Game; sourceTree = "<group>"; };
 		E12672972C42BC4C003C8E38 /* GameCommunity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GameCommunity; path = Modules/GameCommunity; sourceTree = "<group>"; };
 		E172A5A92C4B0E4300C9F385 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -121,7 +120,7 @@
 				E19053412C49052400E97723 /* GameCommunity in Frameworks */,
 				E1BCF0CB2C0F43E500B0ACD0 /* RealmSwift in Frameworks */,
 				E1D277402C0EEC3300DCE8DE /* CachedAsyncImage in Frameworks */,
-				E1B8A4442C4AF82400EB82D1 /* Core in Frameworks */,
+				E12C41002C4B3A0800841025 /* Core in Frameworks */,
 				E190533F2C49052000E97723 /* Game in Frameworks */,
 				E1D277382C0EEBB200DCE8DE /* Alamofire in Frameworks */,
 				E11A10932C415B37009D1FC7 /* FirebaseFirestoreSwift in Frameworks */,
@@ -176,7 +175,6 @@
 			children = (
 				E12672972C42BC4C003C8E38 /* GameCommunity */,
 				E11A10B32C415EE9009D1FC7 /* Game */,
-				E11A10B02C415ED1009D1FC7 /* Core */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -480,7 +478,7 @@
 				E11A10922C415B37009D1FC7 /* FirebaseFirestoreSwift */,
 				E190533E2C49052000E97723 /* Game */,
 				E19053402C49052400E97723 /* GameCommunity */,
-				E1B8A4432C4AF82400EB82D1 /* Core */,
+				E12C40FF2C4B3A0800841025 /* Core */,
 			);
 			productName = TheGameCatalog;
 			productReference = E1D276EC2C0EDBE700DCE8DE /* TheGameCatalog.app */;
@@ -515,6 +513,7 @@
 				E1D2773E2C0EEC3300DCE8DE /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				E1BCF0C92C0F43E500B0ACD0 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				E11A108B2C415B37009D1FC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E12C40FE2C4B3A0800841025 /* XCRemoteSwiftPackageReference "Core" */,
 			);
 			productRefGroup = E1D276ED2C0EDBE700DCE8DE /* Products */;
 			projectDirPath = "";
@@ -827,6 +826,14 @@
 				minimumVersion = 10.29.0;
 			};
 		};
+		E12C40FE2C4B3A0800841025 /* XCRemoteSwiftPackageReference "Core" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dionarya23/Core";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E1BCF0C92C0F43E500B0ACD0 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -874,6 +881,11 @@
 			package = E11A108B2C415B37009D1FC7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
 		};
+		E12C40FF2C4B3A0800841025 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12C40FE2C4B3A0800841025 /* XCRemoteSwiftPackageReference "Core" */;
+			productName = Core;
+		};
 		E190533E2C49052000E97723 /* Game */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Game;
@@ -881,10 +893,6 @@
 		E19053402C49052400E97723 /* GameCommunity */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GameCommunity;
-		};
-		E1B8A4432C4AF82400EB82D1 /* Core */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Core;
 		};
 		E1BCF0CA2C0F43E500B0ACD0 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;

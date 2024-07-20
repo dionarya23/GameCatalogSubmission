@@ -1,4 +1,5 @@
 {
+  "originHash" : "723d050589d0ec1e69db05a2c41b8d4fa151f32218a8fd870f0fcb3d30a518a8",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -25,6 +26,15 @@
       "state" : {
         "revision" : "3b62f154d00019ae29a71e9738800bb6f18b236d",
         "version" : "10.19.2"
+      }
+    },
+    {
+      "identity" : "core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dionarya23/Core",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d3acb2a2eec86e715298eca22eeb3cdf1f4eff48"
       }
     },
     {
@@ -154,5 +164,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
